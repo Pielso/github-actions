@@ -17,7 +17,12 @@ jobs:
 
 
       - name: Build with Maven # Step 3: Build project using Maven
-        run: mvn -B --file pom.xml
+        run: mvn -B package --file pom.xml
+
+      - name: Run program
+        run: java -cp target/app-1.jar org.example.Main > out.txt
+
+
 
 
 
