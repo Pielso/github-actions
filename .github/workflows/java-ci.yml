@@ -22,6 +22,12 @@ jobs:
       - name: Run program
         run: java -cp target/app-1.jar org.example.Main > out.txt
 
+      - name: upload output
+        uses: actions/upload-artifact@v4
+        with:
+          path: 'out.txt'
+          name: 'artifact'
+
 
 
 
