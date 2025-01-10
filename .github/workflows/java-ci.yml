@@ -1,0 +1,23 @@
+name: Java CI # Name of workflow
+
+on: [push] # When to run the action
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest # OS to run on
+
+    steps:
+      - uses: actions/checkout@v4 # Step 1: Get code from our repo
+      - name: Set up JDK # Step 2: install java developer kit
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '22'
+
+
+      - name: Build with Maven # Step 3: Build project using Maven
+        run: mvn -B --file pom.xml
+
+
+
